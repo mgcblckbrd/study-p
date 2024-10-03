@@ -2,7 +2,7 @@
 
 let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
 
-const obj = {
+const personalMovieDB = {
   count: numberOfFilms,
   movies: {},
   actors: {},
@@ -10,14 +10,28 @@ const obj = {
   privat: false,
 };
 
-let a = prompt("Один из последних просмотренных фильмов?", "");
-let b = prompt("На сколько оцените его?", "");
-let c = prompt("Один из последних просмотренных фильмов?", "");
-let d = prompt("На сколько оцените его?", "");
+if (personalMovieDB.count < 10) {
+  console.log("Просмотрено довольно мало фильмов");
+}
+else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30 ) {
+console.log('Вы классический зритель')
+}
 
-obj.movies[a] = b
-obj.movies[c] = d
+else if (personalMovieDB.count >= 30) {
+  console.log('Вы киноман')
+}
+else {30
+  console.log('Произошла ошибка')
+}
 
-console.log(obj);
+for (let i = 0; i < 2; i++) {
+  let a = prompt("Один из последних просмотренных фильмов?", "");
+  let b = prompt("На сколько оцените его?", "");
+  if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+    personalMovieDB.movies[a] = b;
+  } else {
+    i--;
+  }
+}
 
-obj.test = test
+console.log(personalMovieDB);
