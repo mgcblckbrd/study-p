@@ -19,3 +19,5 @@ obj.movies[a] = b
 obj.movies[c] = d
 
 console.log(obj);
+
+obj.test = test
